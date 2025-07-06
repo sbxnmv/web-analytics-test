@@ -3,141 +3,682 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Analytics Test Sayfası</title>
-    
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y05NE2H1HS"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-Y05NE2H1HS');
-    </script>
-    
+    <title>OfisAit.az - Ofis Malzemeleri</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
         .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .button {
-            background-color: #007bff;
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
             color: white;
-            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23e3f2fd" width="1200" height="400"/><text x="600" y="200" font-family="Arial" font-size="48" fill="%23333" text-anchor="middle">Ofis Malzemeleri</text></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+        }
+
+        .btn-secondary {
+            background: #4ecdc4;
+        }
+
+        .btn-secondary:hover {
+            background: #26a69a;
+        }
+
+        .products {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #666;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cart-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .cart-items {
+            margin-bottom: 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-total {
+            text-align: right;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .checkout-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .contact-item h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .newsletter {
+            background: #667eea;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .newsletter-input {
+            padding: 12px;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 10px;
-            transition: background-color 0.3s;
+            font-size: 1rem;
+            min-width: 300px;
         }
-        .button:hover {
-            background-color: #0056b3;
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
-        .success {
-            background-color: #28a745;
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .warning {
-            background-color: #ffc107;
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
         }
-        .danger {
-            background-color: #dc3545;
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
         }
-        .counter {
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #e9ecef;
-            border-radius: 5px;
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-input {
+                min-width: 250px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Web Analytics Test Sayfası</h1>
-        <p>Bu sayfa web analytics öğrenmek için hazırlanmıştır.</p>
-        
-        <h2>Test Butonları</h2>
-        <button class="button" onclick="trackEvent('siparis_ver', 'button_click')">
-            Sipariş Ver Butonu
-        </button>
-        
-        <button class="button success" onclick="trackEvent('sepete_ekle', 'button_click')">
-            Sepete Ekle
-        </button>
-        
-        <button class="button warning" onclick="trackEvent('favorilere_ekle', 'button_click')">
-            Favorilere Ekle
-        </button>
-        
-        <button class="button danger" onclick="trackEvent('iptal_et', 'button_click')">
-            İptal Et
-        </button>
-        
-        <div class="counter">
-            <h3>Tıklanma Sayıları:</h3>
-            <p>Sipariş Ver: <span id="siparisCount">0</span></p>
-            <p>Sepete Ekle: <span id="sepetCount">0</span></p>
-            <p>Favorilere Ekle: <span id="favoriCount">0</span></p>
-            <p>İptal Et: <span id="iptalCount">0</span></p>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">OfisAit.az</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Ana Sayfa</a></li>
+                        <li><a href="#products">Ürünler</a></li>
+                        <li><a href="#about">Hakkımızda</a></li>
+                        <li><a href="#contact">İletişim</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        
-        <h2>Nasıl Çalışır:</h2>
-        <ul>
-            <li>Her butona tıkladığında Google Analytics'e event gönderilir</li>
-            <li>Sayfa üzerinde de anlık sayaç güncellenir</li>
-            <li>Google Analytics dashboard'dan verileri görebilirsin</li>
-        </ul>
-    </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div>
+                <h1>Ofis Malzemeleriniz Burada</h1>
+                <p>Kaliteli ve uygun fiyatlı ofis malzemeleri</p>
+                <a href="#products" class="btn">Ürünleri Gör</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Popüler Ürünler</h2>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">📎</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Ataş Set</h3>
+                        <div class="product-price">15.99 ₼</div>
+                        <p class="product-description">Kaliteli metal ataş seti. Ofis işleriniz için ideal.</p>
+                        <div class="product-actions">
+                            <button class="btn btn-secondary" onclick="addToCart('atas-set', 15.99)">Sepete Ekle</button>
+                            <button class="btn" onclick="viewProduct('atas-set')">Detaylar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">📝</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Kalem Set</h3>
+                        <div class="product-price">25.50 ₼</div>
+                        <p class="product-description">Tükenmez kalem ve kurşun kalem seti. Ofis için gerekli.</p>
+                        <div class="product-actions">
+                            <button class="btn btn-secondary" onclick="addToCart('kalem-set', 25.50)">Sepete Ekle</button>
+                            <button class="btn" onclick="viewProduct('kalem-set')">Detaylar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">📁</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Dosya Klasörü</h3>
+                        <div class="product-price">12.75 ₼</div>
+                        <p class="product-description">A4 belgeleriniz için plastik dosya klasörü.</p>
+                        <div class="product-actions">
+                            <button class="btn btn-secondary" onclick="addToCart('dosya-klasoru', 12.75)">Sepete Ekle</button>
+                            <button class="btn" onclick="viewProduct('dosya-klasoru')">Detaylar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🖥️</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Bilgisayar Standı</h3>
+                        <div class="product-price">89.99 ₼</div>
+                        <p class="product-description">Ergonomik bilgisayar standı. Ayarlanabilir yükseklik.</p>
+                        <div class="product-actions">
+                            <button class="btn btn-secondary" onclick="addToCart('bilgisayar-standi', 89.99)">Sepete Ekle</button>
+                            <button class="btn" onclick="viewProduct('bilgisayar-standi')">Detaylar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">📋</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Clipboard</h3>
+                        <div class="product-price">18.30 ₼</div>
+                        <p class="product-description">A4 boyutunda plastik clipboard. Toplantılar için ideal.</p>
+                        <div class="product-actions">
+                            <button class="btn btn-secondary" onclick="addToCart('clipboard', 18.30)">Sepete Ekle</button>
+                            <button class="btn" onclick="viewProduct('clipboard')">Detaylar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🖨️</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Yazıcı Kağıdı</h3>
+                        <div class="product-price">32.45 ₼</div>
+                        <p class="product-description">A4 yazıcı kağıdı - 500 sayfa. Yüksek kalite.</p>
+                        <div class="product-actions">
+                            <button class="btn btn-secondary" onclick="addToCart('yazici-kagidi', 32.45)">Sepete Ekle</button>
+                            <button class="btn" onclick="viewProduct('yazici-kagidi')">Detaylar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item">
+                <div class="stat-number">1250+</div>
+                <div class="stat-label">Mutlu Müşteri</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Ürün Çeşidi</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99%</div>
+                <div class="stat-label">Müşteri Memnuniyeti</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Destek Hizmeti</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cart-section" id="cart">
+        <div class="container">
+            <h2 class="section-title">Sepetiniz</h2>
+            <div class="cart-items" id="cartItems">
+                <div class="cart-item">
+                    <div>
+                        <h4>Ataş Set</h4>
+                        <p>Adet: 2</p>
+                    </div>
+                    <div>31.98 ₼</div>
+                </div>
+                <div class="cart-item">
+                    <div>
+                        <h4>Kalem Set</h4>
+                        <p>Adet: 1</p>
+                    </div>
+                    <div>25.50 ₼</div>
+                </div>
+            </div>
+            <div class="cart-total">
+                Toplam: <span id="cartTotal">57.48 ₼</span>
+            </div>
+            <div style="text-align: center;">
+                <button class="btn" onclick="clearCart()">Sepeti Temizle</button>
+                <button class="btn btn-secondary" onclick="proceedToCheckout()">Sipariş Ver</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="checkout-section" id="checkout">
+        <div class="container">
+            <h2 class="section-title">Sipariş Bilgileri</h2>
+            <form id="checkoutForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Ad</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Soyad</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-posta</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Adres</label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">Şehir</label>
+                        <select id="city" name="city" required>
+                            <option value="">Şehir Seçin</option>
+                            <option value="baku">Bakü</option>
+                            <option value="ganja">Gence</option>
+                            <option value="sumqayit">Sumqayıt</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="postalCode">Posta Kodu</label>
+                        <input type="text" id="postalCode" name="postalCode" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="paymentMethod">Ödeme Yöntemi</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="">Ödeme Yöntemi Seçin</option>
+                        <option value="card">Kredi Kartı</option>
+                        <option value="cash">Nakit</option>
+                        <option value="transfer">Banka Transferi</option>
+                    </select>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button type="button" class="btn" onclick="cancelOrder()">İptal Et</button>
+                    <button type="submit" class="btn btn-secondary" onclick="submitOrder()">Siparişi Onayla</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">İletişim</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Telefon</h3>
+                    <p>+994 12 345 67 89</p>
+                </div>
+                <div class="contact-item">
+                    <h3>E-posta</h3>
+                    <p>info@ofisait.az</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Adres</h3>
+                    <p>Bakü, Azerbaycan</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn" onclick="callSupport()">Destek Ara</button>
+                <button class="btn btn-secondary" onclick="sendMessage()">Mesaj Gönder</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <h2>Bülten Aboneliği</h2>
+            <p>Yeni ürünler ve kampanyalardan haberdar olun</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="E-posta adresiniz" class="newsletter-input">
+                <button class="btn" onclick="subscribeNewsletter()">Abone Ol</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 OfisAit.az - Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
 
     <script>
-        // Sayaçlar
-        let counters = {
-            siparis_ver: 0,
-            sepete_ekle: 0,
-            favorilere_ekle: 0,
-            iptal_et: 0
-        };
-
-        // Event tracking fonksiyonu
-        function trackEvent(eventName, eventCategory) {
-            // Google Analytics'e event gönder
-            gtag('event', eventName, {
-                event_category: eventCategory,
-                event_label: eventName + '_button',
-                value: 1
-            });
-            
-            // Sayaçları güncelle
-            counters[eventName]++;
-            updateCounters();
-            
-            // Console'a log yaz
-            console.log('Event tracked:', eventName, 'Total clicks:', counters[eventName]);
-            
-            // Kullanıcıya bilgi ver
-            alert(eventName + ' butonuna tıklandı! Toplam: ' + counters[eventName]);
+        // Sepet fonksiyonları
+        function addToCart(productId, price) {
+            console.log('Sepete eklendi:', productId, price);
+            alert('Ürün sepete eklendi!');
         }
 
-        // Sayaçları güncelle
-        function updateCounters() {
-            document.getElementById('siparisCount').textContent = counters.siparis_ver;
-            document.getElementById('sepetCount').textContent = counters.sepete_ekle;
-            document.getElementById('favoriCount').textContent = counters.favorilere_ekle;
-            document.getElementById('iptalCount').textContent = counters.iptal_et;
+        function viewProduct(productId) {
+            console.log('Ürün detayı:', productId);
+            alert('Ürün detayı gösteriliyor...');
         }
 
-        // Sayfa yüklendiğinde
+        function clearCart() {
+            console.log('Sepet temizlendi');
+            alert('Sepet temizlendi!');
+        }
+
+        function proceedToCheckout() {
+            console.log('Sipariş sayfasına yönlendiriliyor');
+            document.getElementById('checkout').scrollIntoView();
+        }
+
+        // Sipariş fonksiyonları
+        function submitOrder() {
+            console.log('Sipariş gönderiliyor');
+            alert('Siparişiniz başarıyla alındı!');
+        }
+
+        function cancelOrder() {
+            console.log('Sipariş iptal edildi');
+            alert('Sipariş iptal edildi.');
+        }
+
+        // İletişim fonksiyonları
+        function callSupport() {
+            console.log('Destek aranıyor');
+            alert('Destek hattı aranıyor...');
+        }
+
+        function sendMessage() {
+            console.log('Mesaj gönderiliyor');
+            alert('Mesaj gönderildi!');
+        }
+
+        // Bülten aboneliği
+        function subscribeNewsletter() {
+            console.log('Bülten aboneliği');
+            alert('Bülten aboneliği başarılı!');
+        }
+
+        // Sayfa yükleme
         window.onload = function() {
-            console.log('Web Analytics Test Sayfası yüklendi');
-            updateCounters();
+            console.log('OfisAit.az sayfası yüklendi');
         };
     </script>
 </body>
