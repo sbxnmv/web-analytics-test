@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Analytics Test Sayfası</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .success {
+            background-color: #28a745;
+        }
+        .warning {
+            background-color: #ffc107;
+        }
+        .danger {
+            background-color: #dc3545;
+        }
+        .counter {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Web Analytics Test Sayfası</h1>
+        <p>Bu sayfa web analytics öğrenmek için hazırlanmıştır.</p>
+        
+        <h2>Test Butonları</h2>
+        <button class="button" onclick="trackEvent('siparis_ver', 'button_click')">
+            Sipariş Ver Butonu
+        </button>
+        
+        <button class="button success" onclick="trackEvent('sepete_ekle', 'button_click')">
+            Sepete Ekle
+        </button>
+        
+        <button class="button warning" onclick="trackEvent('favorilere_ekle', 'button_click')">
+            Favorilere Ekle
+        </button>
+        
+        <button class="button danger" onclick="trackEvent('iptal_et', 'button_click')">
+            İptal Et
+        </button>
+        
+        <div class="counter">
+            <h3>Tıklanma Sayıları:</h3>
+            <p>Sipariş Ver: <span id="siparisCount">0</span></p>
+            <p>Sepete Ekle: <span id="sepetCount">0</span></p>
+            <p>Favorilere Ekle: <span id="favoriCount">0</span></p>
+            <p>İptal Et: <span id="iptalCount">0</span></p>
+        </div>
+        
+        <h2>Nasıl Çalışır:</h2>
+        <ul>
+            <li>Her butona tıkladığında Google Analytics'e event gönderilir</li>
+            <li>Sayfa üzerinde de anlık sayaç güncellenir</li>
+            <li>Google Analytics dashboard'dan verileri görebilirsin</li>
+        </ul>
+    </div>
 
+    <script>
+        // Sayaçlar
+        let counters = {
+            siparis_ver: 0,
+            sepete_ekle: 0,
+            favorilere_ekle: 0,
+            iptal_et: 0
+        };
+
+        // Event tracking fonksiyonu
+        function trackEvent(eventName, eventCategory) {
+            // Google Analytics'e event gönder
+            gtag('event', eventName, {
+                event_category: eventCategory,
+                event_label: eventName + '_button',
+                value: 1
+            });
+            
+            // Sayaçları güncelle
+            counters[eventName]++;
+            updateCounters();
+            
+            // Console'a log yaz
+            console.log('Event tracked:', eventName, 'Total clicks:', counters[eventName]);
+            
+            // Kullanıcıya bilgi ver
+            alert(eventName + ' butonuna tıklandı! Toplam: ' + counters[eventName]);
+        }
+
+        // Sayaçları güncelle
+        function updateCounters() {
+            document.getElementById('siparisCount').textContent = counters.siparis_ver;
+            document.getElementById('sepetCount').textContent = counters.sepete_ekle;
+            document.getElementById('favoriCount').textContent = counters.favorilere_ekle;
+            document.getElementById('iptalCount').textContent = counters.iptal_et;
+        }
+
+        // Sayfa yüklendiğinde
+        window.onload = function() {
+            console.log('Web Analytics Test Sayfası yüklendi');
+            updateCounters();
+        };
+    </script>
+</body>
+</html>
