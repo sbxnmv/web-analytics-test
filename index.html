@@ -4,17 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OfisAit.az - Ofis Malzemeleri</title>
-    <meta name="description" content="Kaliteli ve uygun fiyatlı ofis malzemeleri. Hızlı teslimat ve güvenilir hizmet.">
-    <meta name="keywords" content="ofis malzemeleri, kırtasiye, ataş, kalem, dosya, Azerbaijan">
-    
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
     
     <style>
         * {
@@ -36,14 +25,12 @@
             padding: 0 20px;
         }
 
-        /* Header Styles */
+        /* Header */
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 1rem 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 1000;
         }
 
         .header-content {
@@ -57,11 +44,6 @@
             font-weight: bold;
             text-decoration: none;
             color: white;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
         }
 
         nav ul {
@@ -81,7 +63,6 @@
 
         nav a:hover {
             background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
         }
 
         .cart-icon {
@@ -115,72 +96,24 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(102,126,234,0.9), rgba(118,75,162,0.9)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.1"/></pattern></defs><rect width="1200" height="400" fill="url(%23grid)"/></svg>');
-            background-size: cover;
-            background-position: center;
-            min-height: 500px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.9), rgba(118,75,162,0.9));
+            min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: fadeInUp 1s ease-out;
         }
 
         .hero-content p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* Button Styles */
@@ -188,7 +121,7 @@
             display: inline-block;
             background: #ff6b6b;
             color: white;
-            padding: 14px 30px;
+            padding: 12px 24px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
@@ -196,29 +129,11 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
         }
 
         .btn:hover {
             background: #ff5252;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255,107,107,0.4);
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
@@ -227,7 +142,6 @@
 
         .btn-secondary:hover {
             background: #26a69a;
-            box-shadow: 0 8px 25px rgba(78,205,196,0.4);
         }
 
         .btn-outline {
@@ -243,42 +157,21 @@
 
         /* Products Section */
         .products {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem 0;
+            background: white;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            color: #333;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
+            font-size: 2.5rem;
             margin-bottom: 3rem;
+            color: #333;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-bottom: 3rem;
         }
 
         .product-card {
@@ -286,57 +179,25 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
+            transition: transform 0.3s ease;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
         }
 
         .product-image {
-            height: 220px;
+            height: 200px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-
-        .product-card:hover .product-image::before {
-            transform: translateX(100%);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #ff6b6b;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
         }
 
         .product-info {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .product-name {
@@ -347,17 +208,10 @@
         }
 
         .product-price {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #ff6b6b;
             margin-bottom: 1rem;
-        }
-
-        .product-old-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 1.2rem;
-            margin-left: 0.5rem;
         }
 
         .product-description {
@@ -366,41 +220,55 @@
             line-height: 1.5;
         }
 
-        .product-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .stars {
-            color: #ffc107;
-        }
-
-        .rating-text {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
         .product-actions {
             display: flex;
             gap: 1rem;
-            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .product-actions .btn {
-            flex: 1;
-            min-width: 120px;
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quantity-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn:hover {
+            background: #5a67d8;
+        }
+
+        .quantity-display {
+            min-width: 40px;
             text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         /* Cart Section */
         .cart-section {
             background: white;
-            padding: 3rem 2rem;
+            padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            margin: 3rem 0;
+            margin: 2rem 0;
+            display: none;
+        }
+
+        .cart-section.active {
+            display: block;
         }
 
         .cart-empty {
@@ -412,7 +280,6 @@
         .cart-empty-icon {
             font-size: 4rem;
             margin-bottom: 1rem;
-            opacity: 0.5;
         }
 
         .cart-items {
@@ -423,21 +290,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
+            padding: 1rem;
             border-bottom: 1px solid #eee;
-            transition: background-color 0.3s ease;
-        }
-
-        .cart-item:hover {
-            background-color: #f8f9fa;
             border-radius: 8px;
-            margin: 0 -1rem;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
+            margin-bottom: 1rem;
+            background: #f8f9fa;
         }
 
         .cart-item-info {
@@ -463,11 +320,6 @@
             color: #333;
         }
 
-        .cart-item-details p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
         .cart-item-price {
             font-weight: bold;
             color: #ff6b6b;
@@ -480,44 +332,14 @@
             gap: 1rem;
         }
 
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .quantity-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .quantity-btn:hover {
-            background: #5a67d8;
-        }
-
-        .quantity-display {
-            min-width: 40px;
-            text-align: center;
-            font-weight: bold;
-        }
-
         .remove-btn {
             background: #ff6b6b;
             color: white;
             border: none;
-            padding: 0.5rem;
+            padding: 0.5rem 1rem;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .remove-btn:hover {
@@ -538,23 +360,22 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: #333;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .cart-actions {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            flex-wrap: wrap;
         }
 
         /* Checkout Section */
         .checkout-section {
             background: white;
-            padding: 3rem 2rem;
+            padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            margin: 3rem 0;
+            margin: 2rem 0;
             display: none;
         }
 
@@ -574,24 +395,18 @@
         }
 
         .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-group select {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             border: 2px solid #ddd;
             border-radius: 8px;
             font-size: 1rem;
-            transition: all 0.3s ease;
-            background: white;
         }
 
         .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .form-group select:focus {
             outline: none;
             border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
-            transform: translateY(-1px);
         }
 
         .form-row {
@@ -600,224 +415,67 @@
             gap: 1rem;
         }
 
-        .form-error {
-            color: #ff6b6b;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .payment-method {
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover {
+            border-color: #667eea;
+        }
+
+        .payment-method.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .payment-method-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Success Section */
+        .success-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+            text-align: center;
             display: none;
         }
 
-        .form-group.error input,
-        .form-group.error select,
-        .form-group.error textarea {
-            border-color: #ff6b6b;
-        }
-
-        .form-group.error .form-error {
+        .success-section.active {
             display: block;
         }
 
-        /* Contact Section */
-        .contact-section {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            margin: 3rem 0;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-item {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-item-icon {
-            font-size: 3rem;
+        .success-icon {
+            font-size: 5rem;
+            color: #4caf50;
             margin-bottom: 1rem;
-            color: #667eea;
         }
 
-        .contact-item h3 {
+        .success-title {
+            font-size: 2rem;
             color: #333;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
         }
 
-        .contact-item p {
+        .success-message {
             color: #666;
             font-size: 1.1rem;
-        }
-
-        /* Stats Section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        /* Newsletter Section */
-        .newsletter {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .newsletter::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="2" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="1200" height="300" fill="url(%23dots)"/></svg>');
-        }
-
-        .newsletter-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .newsletter h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter p {
-            font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .newsletter-form {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            background: rgba(255,255,255,0.9);
-        }
-
-        .newsletter-input:focus {
-            outline: none;
-            background: white;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #667eea;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 2rem;
-            color: #ccc;
-        }
-
-        /* Loading Spinner */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         /* Notification */
@@ -832,22 +490,14 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             transform: translateX(400px);
             transition: transform 0.3s ease;
-            z-index: 10000;
+            z-index: 1000;
         }
 
         .notification.show {
             transform: translateX(0);
         }
 
-        .notification.error {
-            background: #f44336;
-        }
-
-        .notification.warning {
-            background: #ff9800;
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -857,34 +507,10 @@
             nav ul {
                 flex-direction: column;
                 gap: 1rem;
-                width: 100%;
             }
 
             .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .newsletter-input {
-                width: 100%;
-                max-width: 350px;
+                font-size: 2rem;
             }
 
             .product-grid {
@@ -897,34 +523,12 @@
                 gap: 1rem;
             }
 
-            .cart-item-actions {
-                align-self: flex-end;
+            .form-row {
+                grid-template-columns: 1fr;
             }
 
-            .cart-actions {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .product-actions {
-                flex-direction: column;
-            }
-
-            .product-actions .btn {
-                width: 100%;
+            .payment-methods {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -933,16 +537,14 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#home" class="logo">OfisAit.az</a>
+                <a href="#" class="logo" onclick="showHome()">OfisAit.az</a>
                 <nav>
                     <ul>
-                        <li><a href="#home">Ana Sayfa</a></li>
-                        <li><a href="#products">Ürünler</a></li>
-                        <li><a href="#about">Hakkımızda</a></li>
-                        <li><a href="#contact">İletişim</a></li>
+                        <li><a href="#" onclick="showHome()">Ana Sayfa</a></li>
+                        <li><a href="#" onclick="showProducts()">Ürünler</a></li>
                     </ul>
                 </nav>
-                <div class="cart-icon" onclick="toggleCart()">
+                <div class="cart-icon" onclick="showCart()">
                     🛒
                     <span class="cart-count" id="cartCount">0</span>
                 </div>
@@ -950,67 +552,387 @@
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div>
+    <!-- Home Section -->
+    <div id="homeSection">
+        <section class="hero">
+            <div class="hero-content">
                 <h1>Ofis Malzemeleriniz Burada</h1>
                 <p>Kaliteli ve uygun fiyatlı ofis malzemeleri ile iş verimliliğinizi artırın</p>
-                <div class="hero-buttons">
-                    <a href="#products" class="btn">Ürünleri Keşfet</a>
-                    <a href="#contact" class="btn btn-outline">İletişime Geç</a>
+                <a href="#" class="btn" onclick="showProducts()">Ürünleri Keşfet</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products" id="productsSection">
+        <div class="container">
+            <h2 class="section-title">Ürünlerimiz</h2>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">📎</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Ataş Set</h3>
+                        <div class="product-price">15.99 ₼</div>
+                        <p class="product-description">Kaliteli metal ataş seti. Ofis işleriniz için ideal.</p>
+                        <div class="product-actions">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity('product1', -1)">-</button>
+                                <span class="quantity-display" id="quantity1">1</span>
+                                <button class="quantity-btn" onclick="changeQuantity('product1', 1)">+</button>
+                            </div>
+                            <button class="btn btn-secondary" onclick="addToCart('product1')">Sepete Ekle</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">📝</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Kalem Set</h3>
+                        <div class="product-price">25.50 ₼</div>
+                        <p class="product-description">Tükenmez kalem ve kurşun kalem seti. Yedek uçlar dahil.</p>
+                        <div class="product-actions">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity('product2', -1)">-</button>
+                                <span class="quantity-display" id="quantity2">1</span>
+                                <button class="quantity-btn" onclick="changeQuantity('product2', 1)">+</button>
+                            </div>
+                            <button class="btn btn-secondary" onclick="addToCart('product2')">Sepete Ekle</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="products" id="products">
+    <!-- Cart Section -->
+    <section class="cart-section" id="cartSection">
         <div class="container">
-            <h2 class="section-title">Popüler Ürünler</h2>
-            <p class="section-subtitle">En çok tercih edilen ofis malzemelerimizi keşfedin</p>
+            <h2 class="section-title">Sepetim</h2>
             
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        📎
-                        <div class="product-badge">Popüler</div>
+            <div id="cartEmpty" class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <h3>Sepetiniz boş</h3>
+                <p>Alışverişe başlamak için ürünlerimizi inceleyin</p>
+                <button class="btn" onclick="showProducts()">Ürünleri Gör</button>
+            </div>
+
+            <div id="cartItems" class="cart-items" style="display: none;">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+
+            <div id="cartSummary" class="cart-summary" style="display: none;">
+                <div class="cart-total">
+                    <span>Toplam:</span>
+                    <span id="cartTotal">0.00 ₼</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn btn-outline" onclick="showProducts()">Alışverişe Devam</button>
+                    <button class="btn" onclick="showCheckout()">Siparişi Tamamla</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section" id="checkoutSection">
+        <div class="container">
+            <h2 class="section-title">Ödeme Bilgileri</h2>
+            
+            <form id="checkoutForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Ad</label>
+                        <input type="text" id="firstName" name="firstName" required>
                     </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Ataş Set</h3>
-                        <div class="product-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-text">(124 değerlendirme)</span>
-                        </div>
-                        <div class="product-price">
-                            15.99 ₼
-                            <span class="product-old-price">19.99 ₼</span>
-                        </div>
-                        <p class="product-description">Kaliteli metal ataş seti. Ofis işleriniz için ideal. Farklı boyutlarda ataşlar içerir.</p>
-                        <div class="product-actions">
-                            <button class="btn btn-secondary" onclick="addToCart('atas-set', 'Ataş Set', 15.99, '📎')">Sepete Ekle</button>
-                            <button class="btn btn-outline" onclick="viewProduct('atas-set')">Detaylar</button>
-                        </div>
+                    <div class="form-group">
+                        <label for="lastName">Soyad</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-posta</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Adres</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+
+                <h3 style="margin: 2rem 0 1rem;">Ödeme Yöntemi</h3>
+                <div class="payment-methods">
+                    <div class="payment-method selected" onclick="selectPaymentMethod(this)" data-method="card">
+                        <div class="payment-method-icon">💳</div>
+                        <div>Kredi Kartı</div>
+                    </div>
+                    <div class="payment-method" onclick="selectPaymentMethod(this)" data-method="cash">
+                        <div class="payment-method-icon">💵</div>
+                        <div>Kapıda Ödeme</div>
+                    </div>
+                    <div class="payment-method" onclick="selectPaymentMethod(this)" data-method="bank">
+                        <div class="payment-method-icon">🏦</div>
+                        <div>Banka Havalesi</div>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-image">
-                        📝
-                        <div class="product-badge">Yeni</div>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Kalem Set</h3>
-                        <div class="product-rating">
-                            <span class="stars">★★★★☆</span>
-                            <span class="rating-text">(89 değerlendirme)</span>
-                        </div>
-                        <div class="product-price">25.50 ₼</div>
-                        <p class="product-description">Tükenmez kalem ve kurşun kalem seti. Ofis için gerekli. Yedek uçlar dahil.</p>
-                        <div class="product-actions">
-                            <button class="btn btn-secondary" onclick="addToCart('kalem-set', 'Kalem Set', 25.50, '📝')">Sepete Ekle</button>
-                            <button class="btn btn-outline" onclick="viewProduct('kalem-set')">Detaylar</button>
-                        </div>
-                    </div>
+                <div class="cart-actions">
+                    <button type="button" class="btn btn-outline" onclick="showCart()">Sepete Dön</button>
+                    <button type="submit" class="btn">Siparişi Onayla</button>
                 </div>
+            </form>
+        </div>
+    </section>
 
-                <div class="product-card">
-                    <div class="product-image">📁</div>
+    <!-- Success Section -->
+    <section class="success-section" id="successSection">
+        <div class="container">
+            <div class="success-icon">✅</div>
+            <h2 class="success-title">Sipariş Başarılı!</h2>
+            <p class="success-message">Siparişiniz başarıyla alındı. En kısa sürede kargoya verilecek.</p>
+            <p class="success-message">Sipariş numaranız: <strong id="orderNumber"></strong></p>
+            <button class="btn" onclick="showHome()">Ana Sayfaya Dön</button>
+        </div>
+    </section>
+
+    <div class="notification" id="notification"></div>
+
+    <script>
+        // Product data
+        const products = {
+            product1: {
+                name: 'Ataş Set',
+                price: 15.99,
+                icon: '📎'
+            },
+            product2: {
+                name: 'Kalem Set',
+                price: 25.50,
+                icon: '📝'
+            }
+        };
+
+        // Cart data
+        let cart = [];
+        let quantities = {
+            product1: 1,
+            product2: 1
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showHome();
+        });
+
+        // Navigation functions
+        function showHome() {
+            hideAllSections();
+            document.getElementById('homeSection').style.display = 'block';
+            document.getElementById('productsSection').style.display = 'block';
+        }
+
+        function showProducts() {
+            hideAllSections();
+            document.getElementById('productsSection').style.display = 'block';
+        }
+
+        function showCart() {
+            hideAllSections();
+            document.getElementById('cartSection').classList.add('active');
+            updateCartDisplay();
+        }
+
+        function showCheckout() {
+            if (cart.length === 0) {
+                showNotification('Sepetiniz boş!', 'error');
+                return;
+            }
+            hideAllSections();
+            document.getElementById('checkoutSection').classList.add('active');
+        }
+
+        function showSuccess() {
+            hideAllSections();
+            document.getElementById('successSection').classList.add('active');
+            // Generate order number
+            const orderNumber = 'OF' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            document.getElementById('orderNumber').textContent = orderNumber;
+            // Clear cart
+            cart = [];
+            updateCartCount();
+        }
+
+        function hideAllSections() {
+            document.getElementById('homeSection').style.display = 'none';
+            document.getElementById('productsSection').style.display = 'none';
+            document.getElementById('cartSection').classList.remove('active');
+            document.getElementById('checkoutSection').classList.remove('active');
+            document.getElementById('successSection').classList.remove('active');
+        }
+
+        // Quantity functions
+        function changeQuantity(productId, change) {
+            quantities[productId] = Math.max(1, quantities[productId] + change);
+            document.getElementById('quantity' + productId.slice(-1)).textContent = quantities[productId];
+        }
+
+        // Cart functions
+        function addToCart(productId) {
+            const product = products[productId];
+            const quantity = quantities[productId];
+            
+            // Check if product already in cart
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: product.name,
+                    price: product.price,
+                    icon: product.icon,
+                    quantity: quantity
+                });
+            }
+            
+            updateCartCount();
+            showNotification(`${product.name} sepete eklendi!`);
+            
+            // Reset quantity to 1
+            quantities[productId] = 1;
+            document.getElementById('quantity' + productId.slice(-1)).textContent = 1;
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartCount();
+            updateCartDisplay();
+            showNotification('Ürün sepetten çıkarıldı!');
+        }
+
+        function updateCartQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity = Math.max(1, item.quantity + change);
+                updateCartDisplay();
+                updateCartCount();
+            }
+        }
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+
+        function updateCartDisplay() {
+            const cartEmpty = document.getElementById('cartEmpty');
+            const cartItems = document.getElementById('cartItems');
+            const cartSummary = document.getElementById('cartSummary');
+            
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartItems.style.display = 'none';
+                cartSummary.style.display = 'none';
+            } else {
+                cartEmpty.style.display = 'none';
+                cartItems.style.display = 'block';
+                cartSummary.style.display = 'block';
+                
+                // Update cart items
+                cartItems.innerHTML = '';
+                let total = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div class="cart-item-info">
+                            <div class="cart-item-image">${item.icon}</div>
+                            <div class="cart-item-details">
+                                <h4>${item.name}</h4>
+                                <p>Birim fiyat: ${item.price.toFixed(2)} ₼</p>
+                            </div>
+                        </div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateCartQuantity('${item.id}', -1)">-</button>
+                                <span class="quantity-display">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateCartQuantity('${item.id}', 1)">+</button>
+                            </div>
+                            <div class="cart-item-price">${itemTotal.toFixed(2)} ₼</div>
+                            <button class="remove-btn" onclick="removeFromCart('${item.id}')">Sil</button>
+                        </div>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+                
+                // Update total
+                document.getElementById('cartTotal').textContent = total.toFixed(2) + ' ₼';
+            }
+        }
+
+        // Payment method selection
+        function selectPaymentMethod(element) {
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.classList.remove('selected');
+            });
+            element.classList.add('selected');
+        }
+
+        // Checkout form submission
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            
+            if (!firstName || !lastName || !email || !phone || !address) {
+                showNotification('Lütfen tüm alanları doldurun!', 'error');
+                return;
+            }
+            
+            // Simulate processing
+            showNotification('Sipariş işleniyor...', 'info');
+            
+            setTimeout(() => {
+                showSuccess();
+                showNotification('Sipariş başarıyla tamamlandı!');
+            }, 2000);
+        });
+
+        // Notification system
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = 'notification show';
+            
+            if (type === 'error') {
+                notification.style.background = '#f44336';
+            } else if (type === 'info') {
+                notification.style.background = '#2196f3';
+            } else {
+                notification.style.background = '#4caf50';
+            }
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
